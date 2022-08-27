@@ -1,5 +1,5 @@
 {
-  "name": "budget-ui",
+  "name": "@budget1/themes",
   "version": "1.0.0",
   "description": "Theme related stuff for Budget",
   "main": "index.ts",

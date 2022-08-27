@@ -1,9 +1,8 @@
 import { PaletteMode } from "@mui/material";
-import { WHITE } from "..";
-import { getTransparent } from "../../util";
-import sharedPalette from "../shared/palette";
+import { WHITE } from ".";
+import { getTransparent } from "../util";
 
-export default {
+export const palette = {
   mode: "light" as PaletteMode,
   primary: {
     main: "#006398",
@@ -19,7 +18,13 @@ export default {
   },
   background: {
     default: "#FAFBFB",
-    paper: WHITE,
   },
-  ...sharedPalette,
+};
+
+export const components = {
+}
+
+export default {
+  palette,
+  components,
 };

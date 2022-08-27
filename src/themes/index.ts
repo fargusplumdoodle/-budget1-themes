@@ -4,6 +4,7 @@ import purpleDark from "./purple_dark";
 import purpleLight from "./purple_light";
 import orangeLight from "./orange_light";
 import orangeDark from "./orange_dark";
+import shared from "./shared";
 
 export const WHITE = "#FFFFFF";
 export const BLACK = "#000000";
@@ -11,6 +12,13 @@ export const BLACK = "#000000";
 export type ThemeOption = {
   label: string;
   theme: Theme;
+};
+
+const createBudgetTheme = (themeSettings: Partial<Theme>) => {
+  return createTheme({
+    palette: { ...shared.palette, ...themeSettings.palette },
+    components: { ...shared.components, ...themeSettings.components },
+  });
 };
 
 export const THEMES: { [label: string]: ThemeOption } = {
@@ -24,19 +32,19 @@ export const THEMES: { [label: string]: ThemeOption } = {
   },
   CLASSIC_DARK: {
     label: "Classic Dark",
-    theme: purpleDark,
+    theme: createBudgetTheme(purpleDark),
   },
   CLASSIC_LIGHT: {
     label: "Classic Light",
-    theme: purpleLight,
+    theme: createBudgetTheme(purpleLight),
   },
   ORANGE_LIGHT: {
     label: "Orange Light",
-    theme: orangeLight,
+    theme: createBudgetTheme(orangeLight),
   },
   ORANGE_DARK: {
     label: "Orange Dark",
-    theme: orangeDark,
+    theme: createBudgetTheme(orangeDark),
   },
 };
 

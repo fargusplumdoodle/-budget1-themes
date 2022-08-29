@@ -2,27 +2,25 @@ import React from "react";
 import {
   Autocomplete,
   Divider as MuiDivider,
+  Paper,
   styled,
   TextField,
   ThemeProvider,
 } from "@mui/material";
 import { FunctionComponent, ReactElement, useState } from "react";
 import { DEFAULT_THEME, ThemeOption, THEMES } from "../themes";
-import PageBaseDefault from "../components/PageBase";
 
 type ThemeSelectorProps = {
   children: ReactElement[] | ReactElement;
 };
 
 const ThemeDropdown = styled(Autocomplete)(({ theme }) => ({
-  paddingTop: theme.spacing(2),
   marginBottom: theme.spacing(2),
   maxWidth: 200,
 }));
 
-const PageBase = styled(PageBaseDefault)(() => ({
-  width: "100vw",
-  height: "100vh",
+const PageBase = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(4),
 }));
 
 const Divider = styled(MuiDivider)(({ theme }) => ({
@@ -34,7 +32,7 @@ const ThemeSelect: FunctionComponent<ThemeSelectorProps> = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme.theme}>
-      <PageBase>
+      <PageBase elevation={0}>
         <ThemeDropdown
           defaultValue={DEFAULT_THEME}
           options={Object.values(THEMES)}

@@ -31,11 +31,11 @@ export const THEMES: { [label: string]: ThemeOption } = {
     theme: createTheme({ palette: { mode: "dark" } }),
   },
   CLASSIC_DARK: {
-    label: "Classic Dark",
+    label: "Purple Dark",
     theme: createBudgetTheme(purpleDark),
   },
   CLASSIC_LIGHT: {
-    label: "Classic Light",
+    label: "Purple Light",
     theme: createBudgetTheme(purpleLight),
   },
   ORANGE_LIGHT: {

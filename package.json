@@ -1,5 +1,5 @@
 {
-  "name": "@budget1/themes",
+  "name": "@fargusplumdoodle/themes",
   "version": "1.0.0",
   "description": "Theme related stuff for Budget",
   "main": "index.ts",
@@ -23,6 +23,11 @@
     "@types/react": "^18.0.17",
     "@vitejs/plugin-react": "^2.0.1",
     "babel-loader": "^8.2.5",
+    "eslint": "^8.23.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-react": "^7.31.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "typescript": "^4.7.4",
     "vite": "^3.0.9"
   },

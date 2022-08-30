@@ -18,8 +18,6 @@ export const palette = {
   },
   background: {
     default: "#0E1E1E",
-    paper: "#232322",
-    elevation: ["#0E1E1E", "#232323", "#252525", "#272727", "#2A2A2A"],
   },
 };
 

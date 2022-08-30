@@ -9,11 +9,16 @@ export const components = {
       },
     },
     styleOverrides: {
-      root: {
+      root: ({ theme }: any) => ({
         '& [class*="MuiFilledInput-root"]': {
           borderRadius: 4,
         },
-      },
+        [`& [class*="MuiFilledInput-root"].Mui-error`]: {
+          borderColor: theme.palette.error.dark,
+          borderStyle: "solid",
+          borderWidth: 1,
+        },
+      }),
     },
   },
   MuiButton: {

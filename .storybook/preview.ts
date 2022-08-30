@@ -1,4 +1,4 @@
-import withThemeDecorator from '../src/decorators/withThemeDecorator'
+import withThemeDecorator from "../src/decorators/withThemeDecorator";
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -7,6 +7,6 @@ export const parameters = {
       date: /Date$/,
     },
   },
-}
+};
 
-export const decorators = [withThemeDecorator]
+export const decorators = [withThemeDecorator];

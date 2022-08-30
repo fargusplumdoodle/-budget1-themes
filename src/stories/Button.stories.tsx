@@ -1,15 +1,9 @@
 import {
-  Container as MuiContainer,
   Grid,
-  InputAdornment,
-  Paper as MuiPaper,
-  styled,
   Button,
-  Typography,
 } from "@mui/material";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import React from "react";
-import ThemeSelect from "../decorators/withThemeDecorator";
 
 export default {
   title: "Button",
@@ -36,9 +30,7 @@ const Template: ComponentStory<typeof Button> = function (args) {
   return (
     <Grid container direction="column" spacing={1} gap={1}>
       {variants.map((button) => (
-        <Grid item>
-          {button}
-        </Grid>
+        <Grid item>{button}</Grid>
       ))}
     </Grid>
   );

@@ -1,10 +1,7 @@
 import {
   Grid,
-  GridProps,
   useTheme,
-  Box,
   Typography,
-  styled,
   Palette,
   PaletteColor,
 } from "@mui/material";

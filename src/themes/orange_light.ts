@@ -1,31 +1,28 @@
 import { PaletteMode } from "@mui/material";
 import { WHITE } from ".";
-import { getTransparent } from "../util";
 
 export const palette = {
   mode: "light" as PaletteMode,
   primary: {
     main: "#FB9678",
     contrastText: WHITE,
-    aasdfsa: 'asdf'
+    aasdfsa: "asdf",
   },
   secondary: {
     main: "#03C9D7",
-    contrastText: WHITE
+    contrastText: WHITE,
   },
   background: {
     default: "#FAFBFB",
   },
 };
 
-export const components = {
-}
+export const components = {};
 
-export const typography = {
-}
+export const typography = {};
 
 export default {
   palette,
   components,
-  typography
+  typography,
 };

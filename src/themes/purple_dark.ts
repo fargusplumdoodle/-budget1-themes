@@ -23,14 +23,12 @@ export const palette = {
   },
 };
 
-export const components = {
-}
+export const components = {};
 
-export const typography = {
-}
+export const typography = {};
 
 export default {
   palette,
   components,
-  typography
+  typography,
 };

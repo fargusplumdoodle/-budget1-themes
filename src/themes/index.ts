@@ -15,27 +15,33 @@ export type ThemeOption = {
 };
 
 const createBudgetTheme = (themeSettings: Partial<Theme>) => {
+  const getConfig = (config: string) => ({
+    ...shared[config],
+    ...themeSettings[config],
+  });
+
   return createTheme({
-    palette: { ...shared.palette, ...themeSettings.palette },
-    components: { ...shared.components, ...themeSettings.components },
+    palette: getConfig("palette"),
+    components: getConfig("components"),
+    typography: getConfig("typography"),
   });
 };
 
 export const THEMES: { [label: string]: ThemeOption } = {
   MATERIAL_LIGHT: {
     label: "Material Light",
-    theme: createTheme({}),
+    theme: createBudgetTheme({}),
   },
   MATERIAL_DARK: {
     label: "Material Dark",
-    theme: createTheme({ palette: { mode: "dark" } }),
+    theme: createBudgetTheme({ palette: { mode: "dark" } }),
   },
-  CLASSIC_DARK: {
-    label: "Purple Dark",
+  BLUE_DARK: {
+    label: "Blue Dark",
     theme: createBudgetTheme(purpleDark),
   },
-  CLASSIC_LIGHT: {
-    label: "Purple Light",
+  BLUE_LIGHT: {
+    label: "Blue Light",
     theme: createBudgetTheme(purpleLight),
   },
   ORANGE_LIGHT: {
@@ -48,4 +54,4 @@ export const THEMES: { [label: string]: ThemeOption } = {
   },
 };
 
-export const DEFAULT_THEME = THEMES.CLASSIC_DARK;
+export const DEFAULT_THEME = THEMES.BLUE_DARK;

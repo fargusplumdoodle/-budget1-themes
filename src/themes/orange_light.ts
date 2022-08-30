@@ -6,11 +6,12 @@ export const palette = {
   mode: "light" as PaletteMode,
   primary: {
     main: "#FB9678",
-    contrast: getTransparent(WHITE, 0.87),
+    contrastText: WHITE,
+    aasdfsa: 'asdf'
   },
   secondary: {
     main: "#03C9D7",
-    contrast: WHITE,
+    contrastText: WHITE
   },
   background: {
     default: "#FAFBFB",
@@ -20,7 +21,11 @@ export const palette = {
 export const components = {
 }
 
+export const typography = {
+}
+
 export default {
   palette,
   components,
+  typography
 };

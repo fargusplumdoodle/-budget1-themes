@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import React from "react";
 import ThemeSelect from "../decorators/withThemeDecorator";
 
 export default {
@@ -22,7 +23,7 @@ const variants: any[] = [
   <Button size="medium">Medium</Button>,
   <Button size="small">Small</Button>,
   <Button variant="text">Text</Button>,
-  <Button variant="contained">Container</Button>,
+  <Button variant="contained">Contained</Button>,
   <Button variant="outlined">Outlined</Button>,
   <Button color="primary">Primary Color</Button>,
   <Button color="secondary">Secondary Color</Button>,
@@ -33,7 +34,7 @@ const variants: any[] = [
 
 const Template: ComponentStory<typeof Button> = function (args) {
   return (
-    <Grid container spacing={1} gap={1}>
+    <Grid container direction="column" spacing={1} gap={1}>
       {variants.map((button) => (
         <Grid item>
           {button}

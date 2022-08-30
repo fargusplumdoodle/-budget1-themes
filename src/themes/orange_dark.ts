@@ -6,18 +6,22 @@ export const palette = {
   mode: "dark" as PaletteMode,
   primary: {
     main: "#FB9B7F",
-    contrast: getTransparent(WHITE, 0.87),
+    contrastText: getTransparent(WHITE, 0.87),
   },
   secondary: {
     main: "#10CCD9",
-    contrast: WHITE,
+    contrastText: WHITE,
   },
 };
 
 export const components = {
 }
 
+export const typography = {
+}
+
 export default {
   palette,
   components,
+  typography,
 };

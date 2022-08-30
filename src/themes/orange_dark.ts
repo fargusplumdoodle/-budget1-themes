@@ -18,8 +18,10 @@ export const components = {};
 
 export const typography = {};
 
-export default {
+const orangeDark = {
   palette,
   components,
   typography,
 };
+
+export default orangeDark;

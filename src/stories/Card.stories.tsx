@@ -9,7 +9,7 @@ export default {
 
 const cards = [...new Array(5).keys()];
 
-const Template: ComponentStory<typeof Card> = function (args) {
+const Template: ComponentStory<typeof Card> = function () {
   return (
     <Grid container spacing={1} gap={1}>
       {cards.map((i) => (

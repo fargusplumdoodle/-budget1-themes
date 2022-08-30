@@ -46,10 +46,11 @@ const ThemeSelect: FunctionComponent<ThemeSelectorProps> = ({ children }) => {
   );
 };
 
-export default function (Story: FunctionComponent) {
+function withThemeDecorator(Story: FunctionComponent) {
   return (
     <ThemeSelect>
       <Story />
     </ThemeSelect>
   );
 }
+export default withThemeDecorator;

@@ -25,8 +25,9 @@ export const typography = {
   fontFamily: '"Ubuntu", "Roboto", "Helvetica", sans-serif',
 };
 
-export default {
+const shared = {
   palette,
   components,
   typography,
 };
+export default shared;

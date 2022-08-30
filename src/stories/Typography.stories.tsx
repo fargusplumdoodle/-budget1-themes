@@ -7,7 +7,7 @@ export default {
   component: Typography,
 } as ComponentMeta<typeof Typography>;
 
-const Template: ComponentStory<typeof Typography> = function (args) {
+const Template: ComponentStory<typeof Typography> = function () {
   return (
     <>
       <Typography variant="h1" gutterBottom>

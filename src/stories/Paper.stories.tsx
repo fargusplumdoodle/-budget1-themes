@@ -9,7 +9,7 @@ export default {
 
 const elevations = [...new Array(10).keys()];
 
-const Template: ComponentStory<typeof Paper> = function (args) {
+const Template: ComponentStory<typeof Paper> = function () {
   return (
     <Grid container spacing={1} gap={1}>
       {elevations.map((elevation) => (

@@ -19,10 +19,10 @@ const variants: any[] = [
   },
 ];
 
-const Template: ComponentStory<typeof TextField> = function (args) {
+const Template: ComponentStory<typeof TextField> = function () {
   return (
     <Grid container spacing={1} gap={1}>
-      {variants.map((props: any, i) => (
+      {variants.map((props: any) => (
         <Grid item>
           <TextField key={props.label} {...props} />
         </Grid>

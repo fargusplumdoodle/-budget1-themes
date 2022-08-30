@@ -21,8 +21,9 @@ export const components = {};
 
 export const typography = {};
 
-export default {
+const orangeLight = {
   palette,
   components,
   typography,
 };
+export default orangeLight;

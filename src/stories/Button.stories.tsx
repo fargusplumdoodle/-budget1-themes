@@ -1,7 +1,4 @@
-import {
-  Grid,
-  Button,
-} from "@mui/material";
+import { Grid, Button } from "@mui/material";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import React from "react";
 
@@ -26,7 +23,7 @@ const variants: any[] = [
   <Button color="error">Error Color</Button>,
 ];
 
-const Template: ComponentStory<typeof Button> = function (args) {
+const Template: ComponentStory<typeof Button> = function () {
   return (
     <Grid container direction="column" spacing={1} gap={1}>
       {variants.map((button) => (

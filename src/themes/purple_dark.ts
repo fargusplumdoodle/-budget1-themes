@@ -27,8 +27,9 @@ export const components = {};
 
 export const typography = {};
 
-export default {
+const purpleDark = {
   palette,
   components,
   typography,
 };
+export default purpleDark;

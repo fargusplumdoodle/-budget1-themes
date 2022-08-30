@@ -74,7 +74,7 @@ const ColorBox: FunctionComponent<ColorBoxProps> = ({ colorScheme }) => {
   );
 };
 
-const Template: ComponentStory<typeof ColorBox> = function (args) {
+const Template: ComponentStory<typeof ColorBox> = function () {
   return (
     <Grid container spacing={4}>
       {schemes.map((scheme) => (

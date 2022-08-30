@@ -24,8 +24,9 @@ export const palette = {
 export const components = {};
 
 export const typography = {};
-export default {
+const purpleLight = {
   palette,
   components,
   typography,
 };
+export default purpleLight;

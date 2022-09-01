@@ -14,8 +14,8 @@ export type ThemeOption = {
   theme: Theme;
 };
 
-const createBudgetTheme = (themeSettings: Partial<Theme>) => {
-  const getConfig = (config: string) => ({
+const createCustomTheme = (themeSettings: any) => {
+  const getConfig = (config: "palette" | "components" | "typography") => ({
     ...shared[config],
     ...themeSettings[config],
   });
@@ -30,28 +30,30 @@ const createBudgetTheme = (themeSettings: Partial<Theme>) => {
 export const THEMES: { [label: string]: ThemeOption } = {
   MATERIAL_LIGHT: {
     label: "Material Light",
-    theme: createBudgetTheme({}),
+    theme: createCustomTheme({}),
   },
   MATERIAL_DARK: {
     label: "Material Dark",
-    theme: createBudgetTheme({ palette: { mode: "dark" } }),
+    theme: createCustomTheme({ palette: { mode: "dark" } }),
   },
   BLUE_DARK: {
     label: "Blue Dark",
-    theme: createBudgetTheme(purpleDark),
+    theme: createCustomTheme(purpleDark),
   },
   BLUE_LIGHT: {
     label: "Blue Light",
-    theme: createBudgetTheme(purpleLight),
+    theme: createCustomTheme(purpleLight),
   },
   ORANGE_LIGHT: {
     label: "Orange Light",
-    theme: createBudgetTheme(orangeLight),
+    theme: createCustomTheme(orangeLight),
   },
   ORANGE_DARK: {
     label: "Orange Dark",
-    theme: createBudgetTheme(orangeDark),
+    theme: createCustomTheme(orangeDark),
   },
 };
 
 export const DEFAULT_THEME = THEMES.BLUE_DARK;
+
+export type SystemThemeOption = keyof typeof THEMES;

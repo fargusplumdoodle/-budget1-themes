@@ -1,6 +1,6 @@
 import { PaletteMode } from "@mui/material";
-import { WHITE } from ".";
 import { getTransparent } from "../util";
+import {WHITE} from "../colors";
 
 export const palette = {
   mode: "dark" as PaletteMode,

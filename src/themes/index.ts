@@ -6,9 +6,6 @@ import orangeLight from "./orange_light";
 import orangeDark from "./orange_dark";
 import shared from "./shared";
 
-export const WHITE = "#FFFFFF";
-export const BLACK = "#000000";
-
 export type ThemeOption = {
   label: string;
   theme: Theme;

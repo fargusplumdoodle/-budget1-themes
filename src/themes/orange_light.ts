@@ -1,5 +1,5 @@
 import { PaletteMode } from "@mui/material";
-import { WHITE } from ".";
+import {WHITE} from "../colors";
 
 export const palette = {
   mode: "light" as PaletteMode,

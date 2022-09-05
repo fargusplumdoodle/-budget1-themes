@@ -2,8 +2,11 @@ import React from "react";
 import {
   Autocomplete,
   Divider as MuiDivider,
+  Grid,
+  InputLabel,
   Paper,
   styled,
+  Switch,
   TextField,
   ThemeProvider,
 } from "@mui/material";
@@ -21,6 +24,7 @@ const ThemeDropdown = styled(Autocomplete)(({ theme }) => ({
 
 const PageBase = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
+  backgroundColor: theme.palette.background.default
 }));
 
 const Divider = styled(MuiDivider)(({ theme }) => ({
@@ -29,16 +33,32 @@ const Divider = styled(MuiDivider)(({ theme }) => ({
 
 const ThemeSelect: FunctionComponent<ThemeSelectorProps> = ({ children }) => {
   const [theme, setTheme] = useState<ThemeOption>(DEFAULT_THEME);
+  const [dark, setDark] = useState(true);
 
   return (
-    <ThemeProvider theme={theme.theme}>
-      <PageBase elevation={0}>
-        <ThemeDropdown
-          defaultValue={DEFAULT_THEME}
-          options={Object.values(THEMES)}
-          renderInput={(params) => <TextField {...params} label="Theme" />}
-          onChange={(_, value) => value && setTheme(value as ThemeOption)}
-        />
+    <ThemeProvider theme={dark ? theme.dark : theme.light}>
+      <PageBase>
+        <Grid container spacing={2} wrap="nowrap" alignItems="center">
+          <Grid item xs={4}>
+            <ThemeDropdown
+              defaultValue={DEFAULT_THEME}
+              options={Object.values(THEMES)}
+              renderInput={(params) => <TextField {...params} label="Theme" />}
+              onChange={(_, value) => {
+                console.log(value);
+                value && setTheme(value as ThemeOption);
+              }}
+            />
+          </Grid>
+          <Grid item container alignItems="center">
+            <InputLabel>Dark</InputLabel>
+            <Switch
+              inputProps={{ "aria-label": "Dark Mode" }}
+              checked={dark}
+              onChange={() => setDark(!dark)}
+            />
+          </Grid>
+        </Grid>
         <Divider />
         {children}
       </PageBase>

@@ -48,7 +48,6 @@ const ColorBox: FunctionComponent<ColorBoxProps> = ({ colorScheme }) => {
         {fields.map((field) => {
           const textColor = getTextColor(field);
           const c = tinycolor(color[field]);
-          console.log(c.toHexString(), textColor);
           return (
             <Grid
               container
@@ -78,7 +77,7 @@ const Template: ComponentStory<typeof ColorBox> = function () {
   return (
     <Grid container spacing={4}>
       {schemes.map((scheme) => (
-        <ColorBox colorScheme={scheme} />
+        <ColorBox key={scheme} colorScheme={scheme} />
       ))}
     </Grid>
   );

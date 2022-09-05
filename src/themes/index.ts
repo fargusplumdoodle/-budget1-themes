@@ -1,56 +1,43 @@
-import { createTheme } from "@mui/material";
+import { createTheme, ThemeOptions } from "@mui/material";
 import { Theme } from "@mui/system";
-import purpleDark from "./purple_dark";
-import purpleLight from "./purple_light";
-import orangeLight from "./orange_light";
-import orangeDark from "./orange_dark";
+import classic from "./classic";
+import orange from "./orange";
+import red from "./red";
 import shared from "./shared";
+import merge from "lodash/merge";
 
 export type ThemeOption = {
   label: string;
-  theme: Theme;
+  light: Theme;
+  dark: Theme;
 };
 
-const createCustomTheme = (themeSettings: any) => {
-  const getConfig = (config: "palette" | "components" | "typography") => ({
-    ...shared[config],
-    ...themeSettings[config],
+const createCustomTheme = (label: string, themeSettings: any): ThemeOption => {
+  const sharedTheme: ThemeOptions = {
+    components: shared.components,
+    typography: shared.typography,
+  };
+
+  const getTheme = (mode: "dark" | "light"): ThemeOptions => ({
+    palette: { ...themeSettings[`${mode}Palette`], mode },
+    components: themeSettings.components,
+    typography: themeSettings.typography,
   });
 
-  return createTheme({
-    palette: getConfig("palette"),
-    components: getConfig("components"),
-    typography: getConfig("typography"),
-  });
+  return {
+    label,
+    dark: createTheme(merge(getTheme("dark"), sharedTheme)),
+    light: createTheme(merge(sharedTheme, getTheme("light"))),
+  };
 };
 
 export const THEMES: { [label: string]: ThemeOption } = {
-  MATERIAL_LIGHT: {
-    label: "Material Light",
-    theme: createCustomTheme({}),
-  },
-  MATERIAL_DARK: {
-    label: "Material Dark",
-    theme: createCustomTheme({ palette: { mode: "dark" } }),
-  },
-  BLUE_DARK: {
-    label: "Blue Dark",
-    theme: createCustomTheme(purpleDark),
-  },
-  BLUE_LIGHT: {
-    label: "Blue Light",
-    theme: createCustomTheme(purpleLight),
-  },
-  ORANGE_LIGHT: {
-    label: "Orange Light",
-    theme: createCustomTheme(orangeLight),
-  },
-  ORANGE_DARK: {
-    label: "Orange Dark",
-    theme: createCustomTheme(orangeDark),
-  },
+  MATERIAL: createCustomTheme("Material", {}),
+  CLASSIC: createCustomTheme("Classic", classic),
+  ORANGE: createCustomTheme("Orange", orange),
+  RED: createCustomTheme("Red", red),
 };
 
-export const DEFAULT_THEME = THEMES.BLUE_DARK;
+export const DEFAULT_THEME = THEMES.CLASSIC;
 
 export type SystemThemeOption = keyof typeof THEMES;

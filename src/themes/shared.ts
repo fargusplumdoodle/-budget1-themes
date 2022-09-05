@@ -1,6 +1,8 @@
-export const palette = {};
+import { Components } from "@mui/material/styles/components";
+import { Theme } from "@mui/material/styles/createTheme";
+import { TypographyOptions } from "@mui/material/styles/createTypography";
 
-export const components = {
+export const components: Components<Omit<Theme, "components">> = {
   MuiTextField: {
     defaultProps: {
       variant: "filled",
@@ -26,12 +28,11 @@ export const components = {
   },
 };
 
-export const typography = {
+export const typography: TypographyOptions = {
   fontFamily: '"Ubuntu", "Roboto", "Helvetica", sans-serif',
 };
 
 const shared = {
-  palette,
   components,
   typography,
 };

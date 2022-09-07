@@ -1,19 +1,14 @@
 import { createTheme, ThemeOptions } from "@mui/material";
-import { Theme } from "@mui/system";
 import classic from "./classic";
 import orange from "./orange";
 import red from "./red";
 import shared from "./shared";
 import merge from "lodash/merge";
-
-export type ThemeOption = {
-  label: string;
-  light: Theme;
-  dark: Theme;
-};
+import { SystemThemeOption, ThemeOption } from "../types";
 
 const createCustomTheme = (label: string, themeSettings: any): ThemeOption => {
-  const sharedTheme: ThemeOptions = {
+  const sharedTheme = {
+    palette: shared.palette,
     components: shared.components,
     typography: shared.typography,
   };
@@ -26,7 +21,7 @@ const createCustomTheme = (label: string, themeSettings: any): ThemeOption => {
 
   return {
     label,
-    dark: createTheme(merge(getTheme("dark"), sharedTheme)),
+    dark: createTheme(merge(sharedTheme, getTheme("dark"))),
     light: createTheme(merge(sharedTheme, getTheme("light"))),
   };
 };
@@ -38,6 +33,4 @@ export const THEMES: { [label: string]: ThemeOption } = {
   RED: createCustomTheme("Red", red),
 };
 
-export const DEFAULT_THEME = THEMES.CLASSIC;
-
-export type SystemThemeOption = keyof typeof THEMES;
+export const DEFAULT_THEME: SystemThemeOption = "CLASSIC";

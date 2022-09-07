@@ -6,7 +6,7 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook",
-    "build:lib": "tsc -p ./tsconfig.json --build -v"
+    "build:lib": "tsc --build"
   },
   "author": "Fargus Plumdoodle",
   "license": "ISC",

@@ -11,7 +11,8 @@ import {
   ThemeProvider,
 } from "@mui/material";
 import { FunctionComponent, ReactElement, useState } from "react";
-import { DEFAULT_THEME, ThemeOption, THEMES } from "../themes";
+import { DEFAULT_THEME, THEMES } from "../themes";
+import { ThemeOption } from "../types";
 
 type ThemeSelectorProps = {
   children: ReactElement[] | ReactElement;
@@ -24,7 +25,7 @@ const ThemeDropdown = styled(Autocomplete)(({ theme }) => ({
 
 const PageBase = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
-  backgroundColor: theme.palette.background.default
+  backgroundColor: theme.palette.background.default,
 }));
 
 const Divider = styled(MuiDivider)(({ theme }) => ({
@@ -32,7 +33,7 @@ const Divider = styled(MuiDivider)(({ theme }) => ({
 }));
 
 const ThemeSelect: FunctionComponent<ThemeSelectorProps> = ({ children }) => {
-  const [theme, setTheme] = useState<ThemeOption>(DEFAULT_THEME);
+  const [theme, setTheme] = useState<ThemeOption>(THEMES[DEFAULT_THEME]);
   const [dark, setDark] = useState(true);
 
   return (
@@ -41,11 +42,10 @@ const ThemeSelect: FunctionComponent<ThemeSelectorProps> = ({ children }) => {
         <Grid container spacing={2} wrap="nowrap" alignItems="center">
           <Grid item xs={4}>
             <ThemeDropdown
-              defaultValue={DEFAULT_THEME}
+              defaultValue={THEMES[DEFAULT_THEME]}
               options={Object.values(THEMES)}
               renderInput={(params) => <TextField {...params} label="Theme" />}
               onChange={(_, value) => {
-                console.log(value);
                 value && setTheme(value as ThemeOption);
               }}
             />

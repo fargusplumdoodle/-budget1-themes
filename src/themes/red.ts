@@ -25,6 +25,9 @@ export const lightPalette: PaletteOptions = {
     main: "#5E244D",
     contrastText: WHITE,
   },
+  background: {
+    default: "#FAFBFB",
+  },
 };
 
 export const components = {};

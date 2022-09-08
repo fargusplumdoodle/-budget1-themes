@@ -1,10 +1,11 @@
 import React from "react";
 import {
   Autocomplete,
+  Box,
+  CssBaseline,
   Divider as MuiDivider,
   Grid,
   InputLabel,
-  Paper,
   styled,
   Switch,
   TextField,
@@ -23,9 +24,8 @@ const ThemeDropdown = styled(Autocomplete)(({ theme }) => ({
   maxWidth: 200,
 }));
 
-const PageBase = styled(Paper)(({ theme }) => ({
+const PageBase = styled(Box)(({ theme }) => ({
   padding: theme.spacing(4),
-  backgroundColor: theme.palette.background.default,
 }));
 
 const Divider = styled(MuiDivider)(({ theme }) => ({
@@ -38,6 +38,7 @@ const ThemeSelect: FunctionComponent<ThemeSelectorProps> = ({ children }) => {
 
   return (
     <ThemeProvider theme={dark ? theme.dark : theme.light}>
+      <CssBaseline />
       <PageBase>
         <Grid container spacing={2} wrap="nowrap" alignItems="center">
           <Grid item xs={4}>

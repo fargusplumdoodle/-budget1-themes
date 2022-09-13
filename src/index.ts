@@ -6,4 +6,4 @@ export { WHITE, BLACK, BLACK_TRANSPARENT, WHITE_TRANSPARENT } from "./colors";
 
 export * from "./decorators";
 
-export * from "./utils";
+export * from "./util";

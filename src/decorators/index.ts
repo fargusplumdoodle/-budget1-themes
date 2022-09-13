@@ -1,5 +1,3 @@
 import withThemeDecorator from "./withThemeDecorator";
 
-export {
-    withThemeDecorator
-}
+export { withThemeDecorator };

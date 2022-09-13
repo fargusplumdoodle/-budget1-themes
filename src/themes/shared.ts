@@ -5,6 +5,11 @@ import { TypographyOptions } from "@mui/material/styles/createTypography";
 export const palette = {};
 
 export const components: Components<Omit<Theme, "components">> = {
+  MuiFilledInput: {
+    defaultProps: {
+      disableUnderline: true,
+    },
+  },
   MuiTextField: {
     defaultProps: {
       variant: "filled",

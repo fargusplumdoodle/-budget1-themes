@@ -6,7 +6,8 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook",
-    "build:lib": "tsc --build"
+    "build:lib": "tsc --build",
+    "watch": "tsc --build --watch"
   },
   "author": "Fargus Plumdoodle",
   "license": "ISC",

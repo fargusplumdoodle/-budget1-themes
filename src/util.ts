@@ -1,4 +1,3 @@
-import { Theme } from "@mui/material";
 import tinycolor from "tinycolor2";
 
 export const getTransparent = (colorStr: string, alpha: number) => {

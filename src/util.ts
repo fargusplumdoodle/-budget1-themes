@@ -15,8 +15,8 @@ export const getTransparentRange = (color: string) => {
 
 // Taken from
 // https://github.com/mui/material-ui/blob/9cfcd8c3db362713fbae9fdd0d0c618b1b9d812d/packages/mui-material/src/FilledInput/FilledInput.js
-export const getMuiFilledInputStyles = (theme: Theme) => {
-  const light = theme.palette.mode === "light";
+export const getMuiFilledInputStyles = (mode: "light" | "dark") => {
+  const light = mode === "light";
   const backgroundColor = light
     ? "rgba(0, 0, 0, 0.06)"
     : "rgba(255, 255, 255, 0.09)";

@@ -14,6 +14,8 @@ import {
 import { FunctionComponent, ReactElement, useState } from "react";
 import { DEFAULT_THEME, THEMES } from "../themes";
 import { ThemeOption } from "../types";
+import { LocalizationProvider } from "@mui/lab";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
 
 type ThemeSelectorProps = {
   children: ReactElement[] | ReactElement;
@@ -39,30 +41,34 @@ const ThemeSelect: FunctionComponent<ThemeSelectorProps> = ({ children }) => {
   return (
     <ThemeProvider theme={dark ? theme.dark : theme.light}>
       <CssBaseline />
-      <PageBase>
-        <Grid container spacing={2} wrap="nowrap" alignItems="center">
-          <Grid item xs={4}>
-            <ThemeDropdown
-              defaultValue={THEMES[DEFAULT_THEME]}
-              options={Object.values(THEMES)}
-              renderInput={(params) => <TextField {...params} label="Theme" />}
-              onChange={(_, value) => {
-                value && setTheme(value as ThemeOption);
-              }}
-            />
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <PageBase>
+          <Grid container spacing={2} wrap="nowrap" alignItems="center">
+            <Grid item xs={4}>
+              <ThemeDropdown
+                defaultValue={THEMES[DEFAULT_THEME]}
+                options={Object.values(THEMES)}
+                renderInput={(params) => (
+                  <TextField {...params} label="Theme" />
+                )}
+                onChange={(_, value) => {
+                  value && setTheme(value as ThemeOption);
+                }}
+              />
+            </Grid>
+            <Grid item container alignItems="center">
+              <InputLabel>Dark</InputLabel>
+              <Switch
+                inputProps={{ "aria-label": "Dark Mode" }}
+                checked={dark}
+                onChange={() => setDark(!dark)}
+              />
+            </Grid>
           </Grid>
-          <Grid item container alignItems="center">
-            <InputLabel>Dark</InputLabel>
-            <Switch
-              inputProps={{ "aria-label": "Dark Mode" }}
-              checked={dark}
-              onChange={() => setDark(!dark)}
-            />
-          </Grid>
-        </Grid>
-        <Divider />
-        {children}
-      </PageBase>
+          <Divider />
+          {children}
+        </PageBase>
+      </LocalizationProvider>
     </ThemeProvider>
   );
 };

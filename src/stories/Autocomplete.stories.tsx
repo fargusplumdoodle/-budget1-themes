@@ -150,6 +150,20 @@ const Template: ComponentStory<typeof Autocomplete> = function () {
           }}
         />
       </Grid>
+      <Grid item>
+        <Autocomplete
+          disablePortal
+          multiple
+          limitTags={2}
+          disableClearable
+          options={top100Films}
+          value={[top100Films[0], top100Films[1], top100Films[2]]}
+          sx={{ width: 300 }}
+          renderInput={(params) => {
+            return <TextField {...params} label="Tags" />;
+          }}
+        />
+      </Grid>
     </Grid>
   );
 };

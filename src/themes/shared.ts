@@ -22,7 +22,7 @@ export const components: Components<Omit<Theme, "components">> = {
         '& [class*="MuiFilledInput-root"]': {
           borderRadius: 4,
         },
-        [`& [class*="MuiFilledInput-root"].Mui-error`]: {
+        '& [class*="MuiFilledInput-root"].Mui-error': {
           borderColor: theme.palette.error.dark,
           borderStyle: "solid",
           borderWidth: 1,
@@ -32,6 +32,17 @@ export const components: Components<Omit<Theme, "components">> = {
   },
   MuiButton: {
     defaultProps: { variant: "contained", disableElevation: true },
+  },
+  MuiAutocomplete: {
+    styleOverrides: {
+      root: ({ theme }) => ({
+        '& [class*="MuiChip-root"]': {
+          ":first-of-type": {
+            marginTop: theme.spacing(1),
+          },
+        },
+      }),
+    },
   },
 };
 
